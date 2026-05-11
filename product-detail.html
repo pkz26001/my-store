@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - My Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/product-detail.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">My Store</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart <span class="cart-count">0</span></a></li>
+                <li><a href="auth.html">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Product Detail Section -->
+    <section class="product-detail-section">
+        <div class="container">
+            <div class="product-detail">
+                <!-- Product Image -->
+                <div class="product-image">
+                    <img id="product-image" src="" alt="Product">
+                </div>
+
+                <!-- Product Info -->
+                <div class="product-info">
+                    <h1 id="product-name"></h1>
+                    <div class="product-rating">
+                        <span id="product-rating-stars"></span>
+                        <span id="product-rating-count">0 reviews</span>
+                    </div>
+                    <div class="product-price">
+                        <span class="price" id="product-price"></span>
+                        <span class="stock" id="product-stock"></span>
+                    </div>
+                    <p id="product-description"></p>
+
+                    <div class="product-actions">
+                        <div class="quantity-selector">
+                            <button onclick="decreaseQuantity()">-</button>
+                            <input type="number" id="quantity" value="1" min="1">
+                            <button onclick="increaseQuantity()">+</button>
+                        </div>
+                        <button class="btn btn-primary" onclick="addProductToCart()">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="reviews-section">
+                <h2>Customer Reviews</h2>
+                
+                <!-- Review Form -->
+                <div class="review-form">
+                    <h3>Write a Review</h3>
+                    <form id="review-form" onsubmit="submitReview(event)">
+                        <div class="rating-input">
+                            <label>Rating:</label>
+                            <div class="stars">
+                                <span class="star" onclick="setRating(1)">★</span>
+                                <span class="star" onclick="setRating(2)">★</span>
+                                <span class="star" onclick="setRating(3)">★</span>
+                                <span class="star" onclick="setRating(4)">★</span>
+                                <span class="star" onclick="setRating(5)">★</span>
+                            </div>
+                            <input type="hidden" id="review-rating" value="5">
+                        </div>
+                        <input type="text" id="review-title" placeholder="Review Title" required>
+                        <textarea id="review-text" placeholder="Write your review here..." rows="4" required></textarea>
+                        <button type="submit" class="btn btn-primary">Submit Review</button>
+                    </form>
+                </div>
+
+                <!-- Reviews List -->
+                <div class="reviews-list" id="reviews-list">
+                    <!-- Reviews will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 My Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/products.js"></script>
+    <script src="js/product-detail.js"></script>
+</body>
+</html>

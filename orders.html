@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - My Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/orders.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">My Store</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart <span class="cart-count">0</span></a></li>
+                <li><a href="orders.html" class="active">My Orders</a></li>
+                <li><a href="auth.html">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Orders Section -->
+    <section class="orders-section">
+        <div class="container">
+            <h1>My Orders</h1>
+            
+            <div id="orders-container">
+                <!-- Orders will be loaded here -->
+            </div>
+            
+            <div id="no-orders-message" class="no-orders-message" style="display: none;">
+                <p>You haven't placed any orders yet.</p>
+                <a href="products.html" class="btn btn-primary">Start Shopping</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Details Modal -->
+    <div id="order-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeOrderModal()">&times;</span>
+            <h2>Order Details</h2>
+            <div id="modal-order-details"></div>
+            <div class="modal-tracking">
+                <h3>Tracking Information</h3>
+                <div id="modal-tracking-info"></div>
+            </div>
+            <button class="btn btn-primary" onclick="closeOrderModal()">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 My Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/orders.js"></script>
+</body>
+</html>

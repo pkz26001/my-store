@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - My Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">My Store</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart <span class="cart-count">0</span></a></li>
+                <li><a href="auth.html">Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <h1>Checkout</h1>
+            
+            <div class="checkout-content">
+                <!-- Checkout Form -->
+                <div class="checkout-form">
+                    <h2>Billing Information</h2>
+                    <form id="checkout-form">
+                        <input type="text" id="customer-name" placeholder="Full Name" required>
+                        <input type="email" id="customer-email" placeholder="Email" required>
+                        <input type="text" id="customer-address" placeholder="Street Address" required>
+                        <div class="form-row">
+                            <input type="text" id="customer-city" placeholder="City" required>
+                            <input type="text" id="customer-state" placeholder="State" required>
+                        </div>
+                        <div class="form-row">
+                            <input type="text" id="customer-zip" placeholder="ZIP Code" required>
+                            <input type="text" id="customer-country" placeholder="Country" required>
+                        </div>
+
+                        <h2 style="margin-top: 30px;">Payment Method</h2>
+                        <div class="payment-methods">
+                            <label>
+                                <input type="radio" name="payment-method" value="stripe" checked>
+                                <strong>Credit/Debit Card (Stripe)</strong>
+                            </label>
+                            <label>
+                                <input type="radio" name="payment-method" value="paypal">
+                                <strong>PayPal</strong>
+                            </label>
+                        </div>
+
+                        <!-- Stripe Card Element -->
+                        <div id="stripe-container" style="display: block;">
+                            <div id="card-element" style="border: 1px solid #ccc; padding: 10px; border-radius: 4px;"></div>
+                            <div id="card-errors" role="alert" style="color: red; margin-top: 10px;"></div>
+                        </div>
+
+                        <!-- PayPal Container -->
+                        <div id="paypal-container" style="display: none; margin: 20px 0;"></div>
+
+                        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Place Order</button>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div id="order-items"></div>
+                    <div class="summary-item">
+                        <span>Subtotal:</span>
+                        <span id="summary-subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Shipping:</span>
+                        <span id="summary-shipping">$0.00</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Tax:</span>
+                        <span id="summary-tax">$0.00</span>
+                    </div>
+                    <div class="summary-total">
+                        <span>Total:</span>
+                        <span id="summary-total">$0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 My Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=YOUR_PAYPAL_CLIENT_ID"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+</body>
+</html>
